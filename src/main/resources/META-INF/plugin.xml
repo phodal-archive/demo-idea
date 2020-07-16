@@ -11,7 +11,7 @@
         <applicationService serviceImplementation="com.phodal.plugins.template.services.MyApplicationService"/>
         <projectService serviceImplementation="com.phodal.plugins.template.services.MyProjectService"/>
 
-<!--        <welcomeScreen implementation="com.android.tools.idea.welcome.wizard.AndroidStudioWelcomeScreenProvider"/>-->
+        <welcomeScreen implementation="com.phodal.welcome.CocaWelcomeScreenProvider"/>
     </extensions>
 
     <projectListeners>
