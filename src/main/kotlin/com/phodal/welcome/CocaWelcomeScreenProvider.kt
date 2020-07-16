@@ -6,7 +6,7 @@ import javax.swing.JRootPane
 
 class CocaWelcomeScreenProvider : WelcomeScreenProvider {
     override fun createWelcomeScreen(rootPane: JRootPane): WelcomeScreen? {
-        return null
+        return CocaWelcome()
     }
 
     override fun isAvailable(): Boolean {
