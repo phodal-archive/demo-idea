@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.phodal.plugins.template.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.phodal.plugins.template.MyBundle
 
 class MyApplicationService {
 
