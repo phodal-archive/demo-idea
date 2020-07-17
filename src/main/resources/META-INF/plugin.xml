@@ -6,11 +6,11 @@
     <!-- Product and plugin compatibility requirements -->
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-<!--    <application-components>-->
-<!--        <component>-->
-<!--            <implementation-class>com.phodal.startup.InitialConfigurator</implementation-class>-->
-<!--        </component>-->
-<!--    </application-components>-->
+    <!--    <application-components>-->
+    <!--        <component>-->
+    <!--            <implementation-class>com.phodal.startup.InitialConfigurator</implementation-class>-->
+    <!--        </component>-->
+    <!--    </application-components>-->
 
     <extensionPoints>
         <extensionPoint name="studioInitializer" interface="java.lang.Runnable"/>
@@ -20,7 +20,8 @@
         <applicationService serviceImplementation="com.phodal.plugins.template.services.MyApplicationService"/>
         <projectService serviceImplementation="com.phodal.plugins.template.services.MyProjectService"/>
 
-        <studioInitializer id="Startup.StudioInitializer" implementation="com.phodal.startup.GradleSpecificInitializer"  />
+        <studioInitializer id="Startup.StudioInitializer"
+                           implementation="com.phodal.startup.GradleSpecificInitializer"/>
         <welcomeScreen implementation="com.phodal.welcome.CocaWelcomeScreenProvider"/>
     </extensions>
 
@@ -28,4 +29,12 @@
         <listener class="com.phodal.plugins.template.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </projectListeners>
+
+    <actions>
+        <action id="Idea.Format"
+                class="com.phodal.plugins.action.SpecFormatter"
+                text="Spec Format" description="Format spec files">
+            <keyboard-shortcut first-keystroke="ctrl alt shift l" keymap="$default"/>
+        </action>
+    </actions>
 </idea-plugin>
