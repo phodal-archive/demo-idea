@@ -6,16 +6,16 @@ import com.intellij.openapi.fileTypes.FileTypeManager
 import com.intellij.util.messages.MessageBus
 import org.jetbrains.annotations.NonNls
 
-class InitialConfigurator {
+class InitialConfigurator(bus: MessageBus, propertiesComponent: PropertiesComponent, fileTypeManager: FileTypeManager) {
     @NonNls
-    private val EP_NAME = ExtensionPointName.create<Runnable>("com.phodal.startup.studioInitializer")
+    private val pointName = ExtensionPointName.create<Runnable>("com.intellij.studioInitializer")
 
-    constructor(bus: MessageBus, propertiesComponent: PropertiesComponent, fileTypeManager: FileTypeManager) {
+    init {
         activateStudioInitializerExtensions()
     }
 
     private fun activateStudioInitializerExtensions() {
-        for (r in EP_NAME.getExtensionList()) {
+        for (r in pointName.getExtensionList()) {
             r.run()
         }
     }
