@@ -12,12 +12,15 @@
 <!--        </component>-->
 <!--    </application-components>-->
 
+    <extensionPoints>
+        <extensionPoint name="studioInitializer" interface="java.lang.Runnable"/>
+    </extensionPoints>
+
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.phodal.plugins.template.services.MyApplicationService"/>
         <projectService serviceImplementation="com.phodal.plugins.template.services.MyProjectService"/>
 
-<!--        <studioInitializer id="Startup.StudioInitializer" implementation="com.phodal.startup.GradleSpecificInitializer"  />-->
-
+        <studioInitializer id="Startup.StudioInitializer" implementation="com.phodal.startup.GradleSpecificInitializer"  />
         <welcomeScreen implementation="com.phodal.welcome.CocaWelcomeScreenProvider"/>
     </extensions>
 
