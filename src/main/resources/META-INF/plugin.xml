@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.phodal.idea</id>
+    <id>com.phodal.plugins</id>
     <name>Lamond</name>
     <vendor>Phodal</vendor>
 
