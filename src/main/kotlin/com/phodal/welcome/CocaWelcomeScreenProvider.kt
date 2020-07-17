@@ -10,6 +10,6 @@ class CocaWelcomeScreenProvider : WelcomeScreenProvider {
     }
 
     override fun isAvailable(): Boolean {
-        return false;
+        return false
     }
 }

@@ -11,7 +11,7 @@ class InitialConfigurator {
     private val EP_NAME = ExtensionPointName.create<Runnable>("com.phodal.startup.studioInitializer")
 
     constructor(bus: MessageBus, propertiesComponent: PropertiesComponent, fileTypeManager: FileTypeManager) {
-        activateStudioInitializerExtensions();
+        activateStudioInitializerExtensions()
     }
 
     private fun activateStudioInitializerExtensions() {
