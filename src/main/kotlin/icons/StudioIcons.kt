@@ -11,6 +11,7 @@ class StudioIcons {
             return IconLoader.getIcon(path, StudioIcons::class.java)
         }
         object Menu {
+            val LOGO: Icon = load("/studio/icons/android.svg")
             val AVD_MANAGER: Icon = load("/studio/icons/shell/menu/avd-manager.svg")
         }
     }

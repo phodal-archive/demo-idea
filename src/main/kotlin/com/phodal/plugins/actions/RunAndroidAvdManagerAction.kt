@@ -1,11 +1,13 @@
-package com.phodal.plugins.action
+package com.phodal.plugins.actions
 
 import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
 class RunAndroidAvdManagerAction : AnAction() {
-    override fun actionPerformed(e: AnActionEvent) {}
+    override fun actionPerformed(e: AnActionEvent) {
+
+    }
     override fun update(event: AnActionEvent) {
         val presentation = event.presentation
         when (event.place) {

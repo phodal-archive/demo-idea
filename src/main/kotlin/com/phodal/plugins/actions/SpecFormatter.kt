@@ -1,4 +1,4 @@
-package com.phodal.plugins.action
+package com.phodal.plugins.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

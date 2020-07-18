@@ -16,9 +16,9 @@
         <extensionPoint name="studioInitializer" interface="java.lang.Runnable"/>
     </extensionPoints>
 
-<!--    <extensions defaultExtensionNs="com.phodal">-->
-<!--        <studioInitializer id="Startup.StudioInitializer" implementation="com.phodal.startup.StudioInitializer"/>-->
-<!--    </extensions>-->
+    <!--    <extensions defaultExtensionNs="com.phodal">-->
+    <!--        <studioInitializer id="Startup.StudioInitializer" implementation="com.phodal.startup.StudioInitializer"/>-->
+    <!--    </extensions>-->
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.phodal.startup.StudioInitializer"/>
@@ -35,14 +35,13 @@
     </projectListeners>
 
     <actions>
-
-        <action id="WelcomeScreen.RunAndroidAvdManager" class="com.phodal.plugins.action.RunAndroidAvdManagerAction"
+        <action id="WelcomeScreen.RunAndroidAvdManager" class="com.phodal.plugins.actions.RunAndroidAvdManagerAction"
                 icon="StudioIcons.Shell.Menu.AVD_MANAGER">
-            <add-to-group group-id="WelcomeScreen.Configure" anchor="first" />
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
 
         <action id="Gauge.Format"
-                class="com.phodal.plugins.action.SpecFormatter"
+                class="com.phodal.plugins.actions.SpecFormatter"
                 text="Spec Format" description="Format spec files">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut first-keystroke="ctrl alt c" keymap="$default"/>
