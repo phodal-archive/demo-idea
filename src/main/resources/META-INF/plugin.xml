@@ -16,12 +16,16 @@
         <extensionPoint name="studioInitializer" interface="java.lang.Runnable"/>
     </extensionPoints>
 
+<!--    <extensions defaultExtensionNs="com.phodal">-->
+<!--        <studioInitializer id="Startup.StudioInitializer" implementation="com.phodal.startup.StudioInitializer"/>-->
+<!--    </extensions>-->
+
     <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.phodal.startup.StudioInitializer"/>
         <applicationService serviceImplementation="com.phodal.plugins.template.services.MyApplicationService"/>
+
         <projectService serviceImplementation="com.phodal.plugins.template.services.MyProjectService"/>
 
-        <studioInitializer id="Startup.StudioInitializer"
-                           implementation="com.phodal.startup.GradleSpecificInitializer"/>
         <welcomeScreen implementation="com.phodal.welcome.CocaWelcomeScreenProvider"/>
     </extensions>
 
@@ -31,10 +35,11 @@
     </projectListeners>
 
     <actions>
-        <action id="Idea.Format"
+        <action id="Gauge.Format"
                 class="com.phodal.plugins.action.SpecFormatter"
                 text="Spec Format" description="Format spec files">
-            <keyboard-shortcut first-keystroke="ctrl alt shift l" keymap="$default"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut first-keystroke="ctrl alt c" keymap="$default"/>
         </action>
     </actions>
 </idea-plugin>
