@@ -35,6 +35,12 @@
     </projectListeners>
 
     <actions>
+
+        <action id="WelcomeScreen.RunAndroidAvdManager" class="com.phodal.plugins.action.RunAndroidAvdManagerAction"
+                icon="StudioIcons.Shell.Menu.AVD_MANAGER">
+            <add-to-group group-id="WelcomeScreen.Configure" anchor="first" />
+        </action>
+
         <action id="Gauge.Format"
                 class="com.phodal.plugins.action.SpecFormatter"
                 text="Spec Format" description="Format spec files">
