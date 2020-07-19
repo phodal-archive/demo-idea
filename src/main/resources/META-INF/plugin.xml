@@ -35,9 +35,11 @@
     </projectListeners>
 
     <actions>
-        <action id="WelcomeScreen.RunAndroidAvdManager" class="com.phodal.plugins.actions.RunAndroidAvdManagerAction"
-                icon="StudioIcons.Shell.Menu.AVD_MANAGER">
+        <action id="WelcomeScreen.RunAndroidAvdManager" class="com.phodal.plugins.actions.RunGradleAction"
+                icon="StudioIcons.Shell.Menu.AVD_MANAGER"
+                description="Format spec files">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut first-keystroke="ctrl alt r" keymap="$default"/>
         </action>
 
         <action id="Gauge.Format"
