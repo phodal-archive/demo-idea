@@ -38,7 +38,11 @@ repositories {
     jcenter()
 }
 dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk8"))
+
+    implementation("org.codehaus.groovy:groovy-all:jar:2.4.17")
+
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.10.0")
 }
 
