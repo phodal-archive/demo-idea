@@ -22,6 +22,7 @@ class RunGradleAction : AnAction() {
         })
         println(psiFile!!.originalFile);
     }
+
     override fun update(event: AnActionEvent) {
         val presentation = event.presentation
         when (event.place) {

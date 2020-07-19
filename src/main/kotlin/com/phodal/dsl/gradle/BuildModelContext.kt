@@ -1,5 +1,3 @@
 package com.phodal.dsl.gradle
 
-class BuildModelContext  {
-
-}
+class BuildModelContext
