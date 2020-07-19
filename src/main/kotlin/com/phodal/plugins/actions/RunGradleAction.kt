@@ -7,20 +7,28 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.util.Computable
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.psi.PsiManager
+import com.phodal.dsl.gradle.BuildModelContext
+import com.phodal.dsl.gradle.GradleBuildFile
+import com.phodal.dsl.gradle.GroovyDslParser
+import org.jetbrains.plugins.groovy.lang.psi.GroovyFile
 
 class RunGradleAction : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
         val project = e.project!!
         val projectPath = project.basePath!!
         val myFile = LocalFileSystem.getInstance().findFileByPath("$projectPath/build.gradle")!!
-//        val gradleFile = File(rootDir, "build.gradle")
-//        val gradleDocument = FileDocumentManager.getInstance().getDocument(gradleFile.toVirtualFile()!!)!!
 
         val application = ApplicationManager.getApplication()
         val psiFile = application.runReadAction(Computable {
             PsiManager.getInstance(project).findFile(myFile)
         })
-        println(psiFile!!.originalFile);
+
+        val dslFile = GradleBuildFile(myFile, project, "main", BuildModelContext());
+
+        if (psiFile is GroovyFile) {
+            val psiFile = psiFile!!
+            GroovyDslParser(psiFile as GroovyFile, dslFile)
+        }
     }
 
     override fun update(event: AnActionEvent) {
