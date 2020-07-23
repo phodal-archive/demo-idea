@@ -37,6 +37,7 @@ version = pluginVersion
 repositories {
     mavenCentral()
     jcenter()
+    maven { setUrl("https://repo.gradle.org/gradle/libs-releases") }
 }
 dependencies {
     implementation("org.gradle:gradle-tooling-api:5.2.1")
