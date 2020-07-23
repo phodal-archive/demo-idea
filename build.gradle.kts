@@ -39,6 +39,7 @@ repositories {
     jcenter()
 }
 dependencies {
+    implementation("org.gradle:gradle-tooling-api:5.2.1")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk8"))
 
