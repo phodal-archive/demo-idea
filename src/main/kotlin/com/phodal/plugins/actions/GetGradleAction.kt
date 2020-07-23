@@ -17,7 +17,7 @@ class GetGradleAction : AnAction() {
         val project = e.project!!
         val projectPath = project.basePath!!
 
-        val isBuildWithGradle = GradleProjectInfo.getInstance(project).isBuildWithGradle(project)
+        val isBuildWithGradle = GradleProjectInfo.isBuildWithGradle(project)
 
         val connector = GradleConnector.newConnector();
         connector.forProjectDirectory(File(projectPath));

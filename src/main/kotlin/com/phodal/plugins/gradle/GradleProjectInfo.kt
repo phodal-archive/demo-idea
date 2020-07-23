@@ -10,26 +10,19 @@ import com.intellij.openapi.project.Project
 import java.util.*
 
 class GradleProjectInfo {
-
-    private lateinit var myProject: Project
-
     companion object {
-        fun getInstance(project: Project): GradleProjectInfo {
-            return ServiceManager.getService(project, GradleProjectInfo::class.java)
-        }
-    }
+        fun isBuildWithGradle(myProject: Project): Boolean {
+            return ReadAction.compute<Boolean, RuntimeException> {
+                if (myProject.isDisposed()) {
+                    return@compute false
+                }
+                if (Arrays.stream(ModuleManager.getInstance(myProject).modules)
+                                .anyMatch { it: Module? -> ExternalSystemApiUtil.isExternalSystemAwareModule(ProjectSystemId("GRADLE"), it) }) {
+                    return@compute true
+                }
 
-    fun isBuildWithGradle(myProject: Project): Boolean {
-        return ReadAction.compute<Boolean, RuntimeException> {
-            if (myProject.isDisposed()) {
                 return@compute false
             }
-            if (Arrays.stream(ModuleManager.getInstance(myProject).modules)
-                            .anyMatch { it: Module? -> ExternalSystemApiUtil.isExternalSystemAwareModule(ProjectSystemId("GRADLE"), it) }) {
-                return@compute true
-            }
-
-            return@compute false
         }
     }
 }
